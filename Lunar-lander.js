@@ -2,6 +2,13 @@ let rocketx = 400;
 let rockety = 200;
 let x1 = 0;
 let x2 = 500;
+let velocity = 1;
+const accelaration = 0.1;
+const speed = 5;
+
+function setup() {
+  createCanvas(800, 800);
+}
 
 function rocket() {
   stroke(150, 150, 150);
@@ -72,4 +79,30 @@ function draw() {
   ground();
   meteoroid(x1, 0);
   meteoroid(x2, 300);
+}
+
+function controls() {
+  if (keyIsDown(38)) {
+    velocity = -5;
+  } else if (keyIsDown(40)) {
+    velocity = +5;
+  }
+  if (keyIsDown(37)) {
+    rocketx = rocketx - speed;
+  } else if (keyIsDown(39)) {
+    rocketx = rocketx + speed;
+  }
+}
+
+function updateRocket() {
+  rockety = rockety + velocity;
+  velocity = velocity + accelaration;
+
+  if (rockety >= 550) {
+    rockety = 550;
+    velocity = 0;
+  } else if (rockety <= 140) {
+    rockety = 140;
+    velocity *= -1;
+  }
 }
