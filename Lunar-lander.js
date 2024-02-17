@@ -10,6 +10,12 @@ function setup() {
   createCanvas(800, 800);
 }
 
+function ground() {
+  noStroke();
+  fill(0, 0, 0);
+  rect(0, 700, 800, 100);
+}
+
 function rocket() {
   stroke(150, 150, 150);
   fill(255, 0, 0);
@@ -45,12 +51,6 @@ function rocket() {
   ellipse(rocketx, rockety + 60, 7);
 }
 
-function ground() {
-  noStroke();
-  fill(0, 0, 0);
-  rect(0, 700, 800, 100);
-}
-
 function meteoroid(x, y) {
   translate(x, y);
   noStroke();
@@ -75,10 +75,13 @@ function meteoroid(x, y) {
 }
 
 function draw() {
-  rocket();
+  clear();
   ground();
+  rocket();
   meteoroid(x1, 0);
   meteoroid(x2, 300);
+  controls();
+  updateRocket();
 }
 
 function controls() {
@@ -95,8 +98,8 @@ function controls() {
 }
 
 function updateRocket() {
-  rockety = rockety + velocity;
   velocity = velocity + accelaration;
+  rockety = rockety + velocity;
 
   if (rockety >= 550) {
     rockety = 550;
@@ -104,5 +107,12 @@ function updateRocket() {
   } else if (rockety <= 140) {
     rockety = 140;
     velocity *= -1;
+  }
+  if (rockety >= 540) {
+    if (velocity > 1) {
+      console.log("You Lose!");
+    } else if (velocity < 1) {
+      console.log("You Win!");
+    }
   }
 }
