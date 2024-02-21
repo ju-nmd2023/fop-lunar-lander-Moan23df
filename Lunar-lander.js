@@ -182,6 +182,8 @@ function updateRocket() {
   velocity = velocity + acceleration;
   rockety = rockety + velocity;
 
+  // console.log(velocity);
+
   // if (rockety > 1000 && keyPressed === 38) {
   //   acceleration = 0.05;
   // } else {
@@ -203,10 +205,11 @@ function updateRocket() {
     rocketx = rocketx - speed;
   }
 
-  if (rockety >= 500) {
-    if (velocity > 1) {
+  if (rockety >= 450) {
+    if (velocity > 5) {
       console.log("You Lose!");
-    } else if (velocity < 1) {
+    }
+    if (velocity < 5) {
       console.log("You Win!");
     }
   }
