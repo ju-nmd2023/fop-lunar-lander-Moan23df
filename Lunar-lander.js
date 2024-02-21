@@ -7,10 +7,29 @@ let y2 = 400;
 let velocity = 1;
 let acceleration = 0.1;
 let speed = 2;
+let stars = [];
 let gameState = "start";
 
 function setup() {
   createCanvas(600, 700);
+
+  for (let i = 0; i < 1000; i++) {
+    const star = {
+      x: Math.floor(Math.random() * width),
+      y: Math.floor(Math.random() * height),
+    };
+
+    stars.push(star);
+  }
+}
+
+for (let i = 0; i < 1000; i++) {
+  const star = {
+    x: Math.floor(Math.random() * width),
+    y: Math.floor(Math.random() * height),
+  };
+
+  stars.push(star);
 }
 
 function draw() {
@@ -28,7 +47,7 @@ function keyPressed() {
   if (keyCode === 32 && gameState === "start") {
     gameState = "game";
   } else if (keyCode === 32 && gameState === "over") {
-    resetGame();
+    restartGame();
   }
 }
 
@@ -156,6 +175,11 @@ function flames() {
 
 function gameScreen() {
   clear();
+  //star scenery
+  fill(255, 255, 255);
+  for (let star of stars) {
+    ellipse(star.x, star.y, 1);
+  }
   ground();
   rocket();
   meteoroid(x1, y1);
@@ -257,7 +281,7 @@ function gameOver() {
   }
 }
 
-function resetGame() {
+function restartGame() {
   rocketx = 300;
   rockety = 100;
   x1 = 50;
