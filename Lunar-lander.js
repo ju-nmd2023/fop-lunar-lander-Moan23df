@@ -2,25 +2,16 @@ let rocketx = 300;
 let rockety = 100;
 let x1 = 0;
 let x2 = 400;
-let y1 = 50;
+let y1 = 100;
 let y2 = 400;
 let velocity = 1;
 let acceleration = 0.1;
-let speed = 2;
+let speed = 4;
 let stars = [];
 let gameState = "start";
 
 function setup() {
   createCanvas(600, 700);
-
-  for (let i = 0; i < 1000; i++) {
-    const star = {
-      x: Math.floor(Math.random() * width),
-      y: Math.floor(Math.random() * height),
-    };
-
-    stars.push(star);
-  }
 }
 
 for (let i = 0; i < 1000; i++) {
@@ -135,47 +126,47 @@ function meteoroid(x, y) {
 function flames() {
   noStroke();
   fill(255, 165, 0);
-  let flameY = rockety + 100;
-  triangle(rocketx - 20, flameY, rocketx, flameY + 40, rocketx + 20, flameY);
+  let flamesY = rockety + 100;
+  triangle(rocketx - 20, flamesY, rocketx, flamesY + 40, rocketx + 20, flamesY);
   triangle(
     rocketx - 40,
-    flameY,
+    flamesY,
     rocketx - 25,
-    flameY + 30,
+    flamesY + 30,
     rocketx - 10,
-    flameY
+    flamesY
   );
   triangle(
     rocketx + 5,
-    flameY,
+    flamesY,
     rocketx + 25,
-    flameY + 30,
+    flamesY + 30,
     rocketx + 40,
-    flameY
+    flamesY
   );
   fill(252, 230, 140);
-  triangle(rocketx - 15, flameY, rocketx, flameY + 25, rocketx + 15, flameY);
+  triangle(rocketx - 15, flamesY, rocketx, flamesY + 25, rocketx + 15, flamesY);
   triangle(
     rocketx - 35,
-    flameY,
+    flamesY,
     rocketx - 25,
-    flameY + 20,
+    flamesY + 20,
     rocketx - 12,
-    flameY
+    flamesY
   );
   triangle(
     rocketx + 12,
-    flameY,
+    flamesY,
     rocketx + 25,
-    flameY + 20,
+    flamesY + 20,
     rocketx + 35,
-    flameY
+    flamesY
   );
 }
 
 function gameScreen() {
   clear();
-  //star scenery
+  //starS
   fill(255, 255, 255);
   for (let star of stars) {
     ellipse(star.x, star.y, 1);
@@ -205,14 +196,6 @@ function controls() {
 function updateRocket() {
   velocity = velocity + acceleration;
   rockety = rockety + velocity;
-
-  // console.log(velocity);
-
-  // if (rockety > 1000 && keyPressed === 38) {
-  //   acceleration = 0.05;
-  // } else {
-  //   acceleration = 0.1;
-  // }
 
   if (rockety >= 550) {
     velocity = 0;
