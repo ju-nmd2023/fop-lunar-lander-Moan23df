@@ -9,18 +9,19 @@ let acceleration = 0.1;
 let speed = 4;
 let stars = [];
 let gameState = "start";
-
+background(0, 0, 0);
 function setup() {
   createCanvas(600, 700);
-}
+  background(0, 0, 0);
 
-for (let i = 0; i < 1000; i++) {
-  const star = {
-    x: Math.floor(Math.random() * width),
-    y: Math.floor(Math.random() * height),
-  };
+  for (let i = 0; i < 1000; i++) {
+    const star = {
+      x: Math.floor(Math.random() * width),
+      y: Math.floor(Math.random() * height),
+    };
 
-  stars.push(star);
+    stars.push(star);
+  }
 }
 
 function draw() {
@@ -52,7 +53,7 @@ function startScreen() {
 
 function ground() {
   noStroke();
-  fill(0, 0, 0);
+  fill(50, 50, 50);
   rect(0, 600, 800, 100);
 }
 
@@ -166,6 +167,7 @@ function flames() {
 
 function gameScreen() {
   clear();
+  background(0, 0, 0);
   //starS
   fill(255, 255, 255);
   for (let star of stars) {
