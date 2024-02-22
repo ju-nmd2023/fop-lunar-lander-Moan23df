@@ -12,6 +12,7 @@ let gameState = "start";
 background(0, 0, 0);
 function setup() {
   createCanvas(600, 700);
+  frameRate(50);
 
   for (let i = 0; i < 1000; i++) {
     const star = {
@@ -199,15 +200,16 @@ function updateRocket() {
   rockety = rockety + velocity;
 
   if (rockety >= 550) {
+    rockety = 550;
     velocity = 0;
   } else if (rockety <= 80) {
     rockety = 80;
     velocity *= -1;
   }
   if (rocketx <= 0) {
-    rocketx = rocketx + speed;
+    rocketx = 0;
   } else if (rocketx >= 600) {
-    rocketx = rocketx - speed;
+    rocketx = 600;
   }
 }
 
