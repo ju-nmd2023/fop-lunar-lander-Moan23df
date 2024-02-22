@@ -1,7 +1,7 @@
 let rocketx = 300;
 let rockety = 100;
 let x1 = 0;
-let x2 = 450;
+let x2 = 400;
 let y1 = 50;
 let y2 = 400;
 let velocity = 1;
@@ -191,7 +191,7 @@ function gameScreen() {
 
 function controls() {
   if (keyIsDown(38)) {
-    velocity = -5;
+    velocity = -2;
   } else if (keyIsDown(40)) {
     velocity = +10;
   }
@@ -214,28 +214,16 @@ function updateRocket() {
   //   acceleration = 0.1;
   // }
 
-  if (rockety >= 500) {
-    rockety = 500;
+  if (rockety >= 550) {
     velocity = 0;
   } else if (rockety <= 80) {
     rockety = 80;
     velocity *= -1;
   }
   if (rocketx <= 0) {
-    rocketx = 0;
     rocketx = rocketx + speed;
   } else if (rocketx >= 600) {
-    rocketx = 600;
     rocketx = rocketx - speed;
-  }
-
-  if (rockety >= 450) {
-    if (velocity > 5) {
-      console.log("You Lose!");
-    }
-    if (velocity < 5) {
-      console.log("You Win!");
-    }
   }
 }
 
@@ -260,10 +248,11 @@ function gameOver() {
   ) {
     velocity = 0;
     gameState = "over";
+    console.log("You Lose!");
 
     fill(255, 255, 255);
     text("You Crushed!", 300, 350);
-    text("Please Press Enter To Restart", 300, 400);
+    text("Please Press Space To Restart", 300, 400);
   }
 
   if (
@@ -274,10 +263,31 @@ function gameOver() {
   ) {
     velocity = 0;
     gameState = "over";
+    console.log("You Lose!");
 
     fill(255, 255, 255);
     text("You Crushed!", 300, 350);
-    text("Please Press Enter To Restart", 300, 400);
+    text("Please Press Space To Restart", 300, 400);
+  }
+  if (rockety >= 540) {
+    if (velocity > 5) {
+      console.log("You Lose!");
+      gameState = "over";
+      speed = 0;
+
+      fill(255, 255, 255);
+      text("You Crushed!", 300, 350);
+      text("Please Press Space To Restart", 300, 400);
+    }
+    if (velocity <= 5) {
+      console.log("You Win!");
+      gameState = "over";
+      speed = 0;
+
+      fill(255, 255, 255);
+      text("You Landed!", 300, 350);
+      text("Please Press Space To Restart", 300, 400);
+    }
   }
 }
 
