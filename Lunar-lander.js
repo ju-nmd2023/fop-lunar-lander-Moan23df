@@ -44,7 +44,7 @@ function keyPressed() {
 }
 
 function startScreen() {
-  background(255, 255, 255);
+  background(246, 241, 213);
   textSize(40);
   fill(0, 0, 0);
   textAlign(CENTER);
