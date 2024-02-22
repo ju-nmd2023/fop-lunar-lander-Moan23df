@@ -12,7 +12,6 @@ let gameState = "start";
 background(0, 0, 0);
 function setup() {
   createCanvas(600, 700);
-  background(0, 0, 0);
 
   for (let i = 0; i < 1000; i++) {
     const star = {
