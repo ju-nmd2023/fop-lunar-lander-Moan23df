@@ -46,7 +46,7 @@ function keyPressed() {
 function startScreen() {
   background(246, 241, 213);
   textSize(40);
-  fill(0, 0, 0);
+  fill(50, 50, 50);
   textAlign(CENTER);
   text("Press Space To Start The Game", 300, 350);
 }
@@ -253,7 +253,7 @@ function gameOver() {
     gameState = "over";
     console.log("You Lose!");
 
-    fill(255, 255, 255);
+    fill(255, 0, 0);
     text("You Crushed!", 300, 350);
     text("Please Press Space To Restart", 300, 400);
   }
@@ -268,7 +268,7 @@ function gameOver() {
     gameState = "over";
     console.log("You Lose!");
 
-    fill(255, 255, 255);
+    fill(255, 0, 0);
     text("You Crushed!", 300, 350);
     text("Please Press Space To Restart", 300, 400);
   }
@@ -278,7 +278,7 @@ function gameOver() {
       gameState = "over";
       speed = 0;
 
-      fill(255, 255, 255);
+      fill(255, 0, 0);
       text("You Crushed!", 300, 350);
       text("Please Press Space To Restart", 300, 400);
     }
@@ -287,7 +287,7 @@ function gameOver() {
       gameState = "over";
       speed = 0;
 
-      fill(255, 255, 255);
+      fill(0, 255, 0);
       text("You Landed!", 300, 350);
       text("Please Press Space To Restart", 300, 400);
     }
