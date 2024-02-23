@@ -244,8 +244,8 @@ function updateMeteoroids() {
 
 function gameOver() {
   if (
-    rocketx > x1 - 80 &&
-    rocketx < x1 + 80 &&
+    rocketx > x1 - 70 &&
+    rocketx < x1 + 70 &&
     rockety > y1 - 100 &&
     rockety < y1 + 100
   ) {
@@ -259,8 +259,8 @@ function gameOver() {
   }
 
   if (
-    rocketx > x2 - 80 &&
-    rocketx < x2 + 80 &&
+    rocketx > x2 - 70 &&
+    rocketx < x2 + 70 &&
     rockety > y2 - 100 &&
     rockety < y2 + 100
   ) {
