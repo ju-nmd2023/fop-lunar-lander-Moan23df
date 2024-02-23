@@ -55,6 +55,23 @@ function ground() {
   noStroke();
   fill(50, 50, 50);
   rect(0, 600, 800, 100);
+  rect(100, 585, 60, 30, 10);
+  rect(400, 585, 100, 30, 10);
+
+  push();
+  stroke(246, 241, 213);
+  strokeWeight(1.5);
+  fill(117, 117, 117);
+  ellipse(320, 650, 100, 20);
+  ellipse(100, 660, 130, 30);
+  ellipse(130, 588, 60, 10);
+  ellipse(450, 588, 100, 10);
+  ellipse(550, 620, 20, 10);
+  ellipse(50, 620, 20, 10);
+  ellipse(600, 680, 200, 50);
+
+  pop();
+  noStroke();
 }
 
 function rocket() {
@@ -282,6 +299,8 @@ function restartGame() {
   rockety = 100;
   x1 = 50;
   x2 = 450;
+  let y1 = 100;
+  let y2 = 400;
   velocity = 1;
   acceleration = 0.1;
   speed = 2;
